@@ -1,0 +1,21 @@
+<div class="appointment-header">
+    <p>Show member appoint</p>
+    <mat-icon>add</mat-icon>
+</div>
+<form class=appointmentForm [formGroup]="showAppointmentForm">
+    <mat-form-field class="appointments-form" appearance="outline">
+        <mat-label>User name</mat-label>
+        <input matInput [matAutocomplete]="auto" formControlName="name">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let user of appointmentService.filteredNames" [value]="user">
+                <span>{{user}}</span>
+            </mat-option>
+        </mat-autocomplete>
+    
+    </mat-form-field>
+</form > 
+
+<div class="btn-wrapper">
+    <button class="appointments-form" mat-raised-button color="primary"
+        (click)="filterByUsername()">Show appointment</button>
+</div>

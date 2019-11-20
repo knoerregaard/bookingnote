@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+app-add-appointment {
+  min-width: 230px;
+  margin: 10px;
+  border: 1px solid lightgray;
+}

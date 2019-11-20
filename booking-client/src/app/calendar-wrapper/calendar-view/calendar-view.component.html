@@ -1,0 +1,16 @@
+<full-calendar
+#calendar
+defaultView=""
+[editable]="true"
+[header]="{
+  left: 'prev, today, next',
+  center: 'title',
+  right: 'dayGridMonth, timeGridWeek, timeGridDay, listWeek'
+}"
+eventLimit="true"
+[plugins]="calendarPlugins"
+[events]="appointmentsService.calendarEvents"
+(dateClick)="handleDateClick($event)"
+(eventClick)="eventClicked($event)"
+(eventDragStop)="eventDragStop($event)"
+></full-calendar> 

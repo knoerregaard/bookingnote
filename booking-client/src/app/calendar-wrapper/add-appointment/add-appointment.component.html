@@ -1,0 +1,45 @@
+<div class='new-appointment-wrapper'>
+    <div class="appointment-header">
+        <p>New appointment</p>
+        <mat-icon>add</mat-icon>
+    </div>
+    <form class="appointmentForm" [formGroup]="addAppointmentForm">
+        <mat-form-field class="appointments-form" appearance="outline">
+            <mat-label>User name</mat-label>
+            <input matInput [matAutocomplete]="auto" formControlName="name">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let user of appointmentService.filteredNames" [value]="user">
+                    <span>{{user}}</span>
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="appointments-form" appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput formControlName="description">
+        </mat-form-field>
+        <mat-form-field class="appointments-form" appearance="outline">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [satDatepicker]="picker" formControlName="date">
+            <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
+            <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
+        </mat-form-field>
+    </form>
+    <div class="send-notification">
+        <div class="send-notification-header">
+            <p>Send email notifications</p>
+            <mat-checkbox labelPosition='before' [(ngModel)]="emailNotification"></mat-checkbox>
+        </div>
+        <div class="send-notification-header">
+            <p>Send sms notifications</p>
+            <mat-checkbox labelPosition='before' [(ngModel)]="smsNotification"></mat-checkbox>
+        </div>
+    </div>
+    <div class="btn-wrapper">
+        <button class="appointments-form" mat-raised-button color="primary" (click)="addAppointment()"
+        [disabled]="addAppointmentForm.invalid">Create
+            appointment</button>
+    </div>
+
+</div>
+
+<app-show-appointment></app-show-appointment>

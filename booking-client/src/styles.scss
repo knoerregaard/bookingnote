@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+@import '~saturn-datepicker/bundle.css';
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background: rgba(236, 236, 236, 0.453);
+}
+.appointments-form {
+  width: 90%;
+  margin: auto;
+}
+.appointment-header {
+  background: #76828e;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  p {
+    margin: 10px;
+  }
+  mat-icon {
+    margin: auto;
+  }
+}
+
+.appointmentForm {
+  display: flex;
+  flex-direction: column;
+}
+.btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0.5em 0 1.2em 0;
+}
